@@ -93,23 +93,26 @@ export default function BlessedOpsHub() {
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 14, fontStyle: "italic", color: T.scripture, marginBottom: 14 }}>Built by the Operator. Blessed by the process.</p>
             <p style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 9, color: T.gray, letterSpacing: 2 }}>© {new Date().getFullYear()} BLESSEDOPS GROUP</p>
             <div style={{ marginTop: 12, display: "flex", justifyContent: "center", gap: 16 }}>
-              <a href="#privacy" onClick={e => { e.preventDefault(); document.getElementById("privacy-section")?.scrollIntoView({ behavior: "smooth" }); }} style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 8, color: T.gray, letterSpacing: 1, textDecoration: "none", opacity: 0.7, transition: "opacity 0.3s" }} onMouseEnter={e => e.target.style.opacity = "1"} onMouseLeave={e => e.target.style.opacity = "0.7"}>Privacy Policy</a>
+              <a href="#privacy" onClick={e => { e.preventDefault(); document.getElementById("privacy-modal").style.display = "flex"; }} style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 8, color: T.gray, letterSpacing: 1, textDecoration: "none", opacity: 0.7, transition: "opacity 0.3s", cursor: "pointer" }} onMouseEnter={e => e.target.style.opacity = "1"} onMouseLeave={e => e.target.style.opacity = "0.7"}>Privacy Policy</a>
               <span style={{ color: T.gray, opacity: 0.3, fontSize: 8 }}>|</span>
               <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 8, color: T.gray, letterSpacing: 1, opacity: 0.7 }}>NDPA 2023 Compliant</span>
             </div>
           </footer>
 
-          {/* Privacy Policy Section */}
-          <section id="privacy-section" style={{ padding: "40px 24px 32px", borderTop: `1px solid ${T.border}`, marginTop: 24, textAlign: "left" }}>
-            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: T.text, marginBottom: 14, textAlign: "center" }}>Privacy Policy</h3>
-            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: T.gray, lineHeight: 1.85, maxWidth: 500, margin: "0 auto" }}>
-              <p style={{ marginBottom: 10 }}>BlessedOps Group (blessedops.com) collects minimal data to improve your browsing experience. We use cookies for analytics and site functionality.</p>
-              <p style={{ marginBottom: 10 }}><strong style={{ color: T.text }}>Data Collected:</strong> Basic analytics (page views, session duration). No personal information is sold or shared with third parties.</p>
-              <p style={{ marginBottom: 10 }}><strong style={{ color: T.text }}>Your Rights (NDPA 2023):</strong> Under the Nigeria Data Protection Act 2023, you have the right to access, correct, or request deletion of your personal data. You may withdraw consent at any time by clearing your browser cookies.</p>
-              <p style={{ marginBottom: 10 }}><strong style={{ color: T.text }}>Contact:</strong> For data-related inquiries, email hello@blessedops.com.</p>
-              <p style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 9, color: T.gold, letterSpacing: 2, marginTop: 16, textAlign: "center" }}>Last updated: {new Date().getFullYear()}</p>
+          {/* Privacy Policy Modal */}
+          <div id="privacy-modal" onClick={e => { if (e.target.id === "privacy-modal") e.target.style.display = "none"; }} style={{ display: "none", position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(8px)", alignItems: "center", justifyContent: "center", padding: 24 }}>
+            <div style={{ background: dark ? "#040404" : "#faf8f4", border: `1px solid ${T.border}`, borderRadius: 16, padding: "32px 28px", maxWidth: 500, width: "100%", maxHeight: "80vh", overflowY: "auto", position: "relative" }}>
+              <button onClick={() => document.getElementById("privacy-modal").style.display = "none"} style={{ position: "absolute", top: 12, right: 16, background: "none", border: "none", color: T.gray, fontSize: 20, cursor: "pointer" }}>x</button>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: T.text, marginBottom: 14 }}>Privacy Policy</h3>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: T.gray, lineHeight: 1.85 }}>
+                <p style={{ marginBottom: 10 }}>BlessedOps Group (blessedops.com) collects minimal data to improve your browsing experience. We use cookies for analytics and site functionality.</p>
+                <p style={{ marginBottom: 10 }}><strong style={{ color: T.text }}>Data Collected:</strong> Basic analytics (page views, session duration). No personal information is sold or shared with third parties.</p>
+                <p style={{ marginBottom: 10 }}><strong style={{ color: T.text }}>Your Rights (NDPA 2023):</strong> Under the Nigeria Data Protection Act 2023, you have the right to access, correct, or request deletion of your personal data. You may withdraw consent at any time by clearing your browser cookies.</p>
+                <p style={{ marginBottom: 10 }}><strong style={{ color: T.text }}>Contact:</strong> For data-related inquiries, email hello@blessedops.com.</p>
+                <p style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 9, color: T.gold, letterSpacing: 2, marginTop: 16 }}>Last updated: {new Date().getFullYear()}</p>
+              </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
 
