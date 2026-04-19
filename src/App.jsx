@@ -6,11 +6,20 @@ const themes = {
 };
 
 const divisions = [
-  { name: "Pejji", desc: "Security-first web agency for Nigerian SMEs", icon: "🌍", accent: "#4ECDC4", url: "https://pejji.com" },
-  { name: "Securva", desc: "Cybersecurity scanning & NDPA compliance SaaS", icon: "🛡️", accent: "#7B68EE", url: "https://securva.net" },
-  { name: "Utility Vault", desc: "Templates, SOPs, and digital products", icon: "⚡", accent: "#FFB347", url: "https://utilityvault.gumroad.com" },
-  { name: "CyberArmor", desc: "Web3 security research & smart contract auditing", icon: "🔐", accent: "#FF6B6B", url: "#" },
+  { name: "Pejji", desc: "Security-first web agency for Nigerian SMEs", icon: "globe", accent: "#4ECDC4", url: "https://pejji.com" },
+  { name: "Securva", desc: "Cybersecurity scanning & NDPA compliance SaaS", icon: "shield", accent: "#7B68EE", url: "https://securva.net" },
+  { name: "Utility Vault", desc: "Templates, SOPs, and digital products", icon: "bolt", accent: "#FFB347", url: "https://utilityvault.gumroad.com" },
+  { name: "CyberArmor", desc: "Web3 security research & smart contract auditing", icon: "lock", accent: "#FF6B6B", url: "#" },
 ];
+
+const Icon = ({ name, color }) => {
+  const common = { width: 28, height: 28, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+  if (name === "globe") return (<svg {...common}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>);
+  if (name === "shield") return (<svg {...common}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>);
+  if (name === "bolt") return (<svg {...common}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>);
+  if (name === "lock") return (<svg {...common}><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>);
+  return null;
+};
 
 export default function BlessedOpsHub() {
   const [vis, setVis] = useState(false);
@@ -65,7 +74,7 @@ export default function BlessedOpsHub() {
                   position: "relative", overflow: "hidden", textDecoration: "none", display: "block",
                 }}>
                   <div style={{ position: "absolute", top: 0, left: "15%", width: h ? "70%" : "0%", height: 2, background: `linear-gradient(90deg, transparent, ${d.accent}, transparent)`, transition: "width 0.4s ease" }} />
-                  <div style={{ fontSize: 28, marginBottom: 10 }}>{d.icon}</div>
+                  <div style={{ marginBottom: 10, height: 28, display: "flex", alignItems: "center", justifyContent: "center" }}><Icon name={d.icon} color={d.accent} /></div>
                   <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: T.text, margin: "0 0 4px" }}>{d.name}</h3>
                   <p style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: d.accent, letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 600, margin: 0 }}>{d.desc}</p>
                   {d.url === "#" && <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 9, color: T.gray, letterSpacing: 1, marginTop: 8, display: "block" }}>COMING SOON</span>}
