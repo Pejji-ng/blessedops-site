@@ -65,7 +65,7 @@ export default function BlessedOpsHub() {
                   position: "relative", overflow: "hidden", textDecoration: "none", display: "block",
                 }}>
                   <div style={{ position: "absolute", top: 0, left: "15%", width: h ? "70%" : "0%", height: 2, background: `linear-gradient(90deg, transparent, ${d.accent}, transparent)`, transition: "width 0.4s ease" }} />
-                  <div style={{ fontSize: 28, marginBottom: 10 }}>{d.icon}</div>
+                  <div style={{ fontSize: 28, marginBottom: 10, fontFamily: "'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol', sans-serif" }}>{d.icon}</div>
                   <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: T.text, margin: "0 0 4px" }}>{d.name}</h3>
                   <p style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: d.accent, letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 600, margin: 0 }}>{d.desc}</p>
                   {d.url === "#" && <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 9, color: T.gray, letterSpacing: 1, marginTop: 8, display: "block" }}>COMING SOON</span>}
